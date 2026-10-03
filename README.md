@@ -24,19 +24,35 @@ and publish events through RabbitMQ. More in [`/docs`](docs/).
 
 You only need .NET, Go or Node installed if you work on that service outside Docker.
 
+### Windows
+
+Use **WSL 2** with Ubuntu. Docker Desktop already runs on top of it, and `make`,
+`bash` and every command in this README work there exactly as on Linux.
+
+1. In PowerShell as administrator: `wsl --install`, then restart the computer.
+2. In Docker Desktop: **Settings → Resources → WSL integration** → enable Ubuntu.
+3. In the Ubuntu terminal: `sudo apt update && sudo apt install -y make git`.
+4. Clone the repository **inside the WSL home directory** (for example `~/projects`),
+   not under `/mnt/c/...`. Working from the Windows drive is much slower
+   and causes line-ending and file permission issues.
+
 ## Quick start
 
 ```bash
 git clone <repo-url> && cd invest-app
-cp infra/.env.example infra/.env
 make up
 ```
 
-That's it. Check that everything is running:
+On the first run `make up` creates `infra/.env` from `infra/.env.example`.
+Edit it if you need different ports or credentials.
+
+Check that everything is running:
 
 ```bash
 make ps
 ```
+
+Run `make` to see all available commands.
 
 ## Local URLs
 

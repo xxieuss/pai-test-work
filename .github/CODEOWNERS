@@ -1,21 +1,21 @@
-*                          @xxieuss
+*                          @xxieuss @tech-mentor
 
 # Backend services
-# /services/auth/            @calc-engine-dev @core-api-dev
-# /services/bff/             @bff-contracts-owner @core-api-dev
-# /services/core-api/        @core-api-dev @calc-engine-dev
-# /services/market-data/     @market-data-dev @bff-contracts-owner
-# /services/notifications/   @notifications-dev @bff-contracts-owner
+# /services/auth/            @calc-engine-dev @core-api-dev @tech-mentor
+# /services/bff/             @bff-contracts-owner @core-api-dev @tech-mentor
+# /services/core-api/        @core-api-dev @calc-engine-dev @tech-mentor
+# /services/market-data/     @market-data-dev @bff-contracts-owner @tech-mentor
+# /services/notifications/   @notifications-dev @bff-contracts-owner @tech-mentor
 
 # Shared gRPC contracts
-# /proto/                    @bff-contracts-owner
+# /proto/                    @bff-contracts-owner @core-api-dev @tech-mentor
 
 # Frontend
-# /frontend/                 @frontend-dev
+# /frontend/                 @frontend-dev @frontend-backup-dev @tech-mentor
 
 # Infrastructure and repo config
-/infra/                    @xxieuss
-/.github/                  @xxieuss
+/infra/                    @xxieuss @bff-contracts-owner @tech-mentor
+/.github/                  @xxieuss @bff-contracts-owner @tech-mentor
 
 # Docs: anyone can approve
 /docs/

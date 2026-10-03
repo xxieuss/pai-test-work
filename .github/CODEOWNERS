@@ -1,0 +1,21 @@
+*                          @xxieuss
+
+# Backend services
+# /services/auth/            @calc-engine-dev @core-api-dev
+# /services/bff/             @bff-contracts-owner @core-api-dev
+# /services/core-api/        @core-api-dev @calc-engine-dev
+# /services/market-data/     @market-data-dev @bff-contracts-owner
+# /services/notifications/   @notifications-dev @bff-contracts-owner
+
+# Shared gRPC contracts
+# /proto/                    @bff-contracts-owner
+
+# Frontend
+# /frontend/                 @frontend-dev
+
+# Infrastructure and repo config
+/infra/                    @xxieuss
+/.github/                  @xxieuss
+
+# Docs: anyone can approve
+/docs/

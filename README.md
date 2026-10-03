@@ -21,8 +21,10 @@ and publish events through RabbitMQ. More in [`/docs`](docs/).
 - Docker Desktop (or Docker Engine with Compose v2)
 - `make`
 - Git
+- [pre-commit](https://pre-commit.com/): `brew install pre-commit` on macOS, `sudo apt install pre-commit` on Ubuntu
 
 You only need .NET, Go or Node installed if you work on that service outside Docker.
+Required versions are listed in [CONTRIBUTING.md](CONTRIBUTING.md#toolchain-versions).
 
 ### Windows
 
@@ -31,17 +33,19 @@ Use **WSL 2** with Ubuntu. Docker Desktop already runs on top of it, and `make`,
 
 1. In PowerShell as administrator: `wsl --install`, then restart the computer.
 2. In Docker Desktop: **Settings → Resources → WSL integration** → enable Ubuntu.
-3. In the Ubuntu terminal: `sudo apt update && sudo apt install -y make git`.
-4. Clone the repository **inside the WSL home directory** (for example `~/projects`),
-   not under `/mnt/c/...`. Working from the Windows drive is much slower
-   and causes line-ending and file permission issues.
+3. In the Ubuntu terminal: `sudo apt update && sudo apt install -y make git pre-commit`.
+4. Clone the repository **inside the WSL home directory** (for example `~/projects`), not under `/mnt/c/...`. Working from the Windows drive is much slower and causes line-ending and file permission issues.
 
 ## Quick start
 
 ```bash
 git clone <repo-url> && cd invest-app
+make hooks
 make up
 ```
+
+`make hooks` installs git hooks that block commits to `main` and scan for secrets.
+You only need to run it once after cloning.
 
 On the first run `make up` creates `infra/.env` from `infra/.env.example`.
 Edit it if you need different ports or credentials.
@@ -72,6 +76,7 @@ Default credentials are in `infra/.env.example`.
 | `make down` | Stop everything |
 | `make logs` | Follow logs of all services |
 | `make ps` | Show running containers |
+| `make hooks` | Install git hooks (once after cloning) |
 
 ## Repository structure
 

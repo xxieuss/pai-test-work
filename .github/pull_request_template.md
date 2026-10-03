@@ -14,3 +14,4 @@ Closes #
 - [ ] `.proto` files changed — API contracts owner notified, generated code updated
 - [ ] New environment variable — added to `.env.example`, DevOps notified
 - [ ] Database migration included — verified that it rolls back
+- [ ] Local setup changed (new service, port, command) — README updated

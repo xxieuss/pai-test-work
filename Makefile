@@ -1,7 +1,7 @@
 COMPOSE := docker compose -f infra/docker-compose.yml
 
 .DEFAULT_GOAL := help
-.PHONY: help env up down restart logs ps clean
+.PHONY: help env up down restart logs ps clean hooks
 
 help: ## Show available commands
 	@grep -E '^[a-zA-Z_-]+:.*## ' $(MAKEFILE_LIST) | \
@@ -27,3 +27,6 @@ ps: ## Show containers and their health
 clean: ## Stop the stack and DELETE all local data
 	@read -p "This deletes all local data (database, queues). Continue? [y/N] " ans && [ "$$ans" = "y" ]
 	$(COMPOSE) down -v
+
+hooks: ## Install git hooks (run once after cloning)
+	pre-commit install

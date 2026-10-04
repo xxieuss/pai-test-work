@@ -3,20 +3,31 @@ syntax = "proto3";
 package invest.marketdata.v1;
 
 import "google/protobuf/timestamp.proto";
+import "google/type/money.proto";
 
+// MarketDataService provides prices for financial instruments.
 service MarketDataService {
+  // Returns the latest quote for an instrument.
   rpc GetQuote(GetQuoteRequest) returns (Quote);
+
+  // Lists latest quotes.
   rpc ListQuotes(ListQuotesRequest) returns (ListQuotesResponse);
 }
 
+// The latest known price of an instrument.
 message Quote {
+  // Resource name. Format: quotes/{ticker}
   string name = 1;
-  string price = 2;
-  string currency_code = 3;
-  google.protobuf.Timestamp update_time = 4;
+
+  // Price with currency, exact to 10^-9.
+  google.type.Money price = 2;
+
+  // When the price was last updated by the provider.
+  google.protobuf.Timestamp update_time = 3;
 }
 
 message GetQuoteRequest {
+  // Format: quotes/{ticker}
   string name = 1;
 }
 

@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package invest.marketdata.v1;
+
+import "google/protobuf/timestamp.proto";
+
+service MarketDataService {
+  rpc GetQuote(GetQuoteRequest) returns (Quote);
+  rpc ListQuotes(ListQuotesRequest) returns (ListQuotesResponse);
+}
+
+message Quote {
+  string name = 1;
+  string price = 2;
+  string currency_code = 3;
+  google.protobuf.Timestamp update_time = 4;
+}
+
+message GetQuoteRequest {
+  string name = 1;
+}
+
+message ListQuotesRequest {
+  int32 page_size = 1;
+  string page_token = 2;
+}
+
+message ListQuotesResponse {
+  repeated Quote quotes = 1;
+  string next_page_token = 2;
+}
